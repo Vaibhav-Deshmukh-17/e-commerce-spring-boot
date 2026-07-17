@@ -1,11 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Navigation from './customer/component/Navigation/Navigation';
+import HomePage from './customer/Pages/HomePage/HomePage';
 
 function App() {
   return (
-    <div className="App">
-      My first Full stack project
-    </div>
+    <div className="">
+      
+      <Navigation/>
+
+      <div>
+        <HomePage/>
+      </div>
+
+    </div> 
+
+   
   );
 }
 
