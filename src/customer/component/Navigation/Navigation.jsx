@@ -218,7 +218,7 @@ export default function Navigation() {
 
       <header className="relative bg-white">
         <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-          Get free delivery on orders over $100
+          Get free delivery on orders over ₹499
         </p>
 
         <nav aria-label="Top" className="mx-auto">
@@ -234,13 +234,11 @@ export default function Navigation() {
               </button>
 
               {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
+              <div className="ml-4 flex lg:ml-0 h-full">
             
                   <span className="sr-only">Your Company</span>
                   <img
-                    src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png"
-                    alt="Shopwithzosh"
-                    className="h-8 w-8 mr-2"
+                   src="https://i.ibb.co/CKvGgS5N/The-Polymath-s-Press.png" alt="The-Polymath-s-Press"
                   />
       
               </div>
