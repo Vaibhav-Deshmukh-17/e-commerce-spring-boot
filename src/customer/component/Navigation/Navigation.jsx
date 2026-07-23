@@ -234,11 +234,12 @@ export default function Navigation() {
               </button>
 
               {/* Logo */}
-              <div className="ml-4 flex lg:ml-0 h-full">
+              <div className="ml-4 flex lg:ml-0 ">
             
                   <span className="sr-only">Your Company</span>
                   <img
                    src="https://i.ibb.co/CKvGgS5N/The-Polymath-s-Press.png" alt="The-Polymath-s-Press"
+                   className="h-10 w-10 m-2"
                   />
       
               </div>
