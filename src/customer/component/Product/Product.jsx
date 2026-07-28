@@ -255,7 +255,6 @@ export default function Product() {
             </h2>
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
-
               {/* Desktop Filters */}
               <div className='hidden lg:block lg:col-span-1'>
               <form className="mt-4 border-t border-gray-200">
