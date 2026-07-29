@@ -51,7 +51,7 @@ export default function Product() {
               className="relative ml-auto flex size-full max-w-xs transform flex-col overflow-y-auto bg-white pt-4 pb-6 shadow-xl transition duration-300 ease-in-out data-closed:translate-x-full"
             >
               <div className="flex items-center justify-between px-4">
-                <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+                <h2 className="text-lg font-medium text-gray-900 opacity-70">Filters</h2>
                 <button
                   type="button"
                   onClick={() => setMobileFiltersOpen(false)}
