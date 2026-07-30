@@ -19,6 +19,7 @@ import { mens_kurta } from '../../../Data/mens_kurta'
 import ProductCard from './ProductCard'
 import { filters, singleFilter } from './FilterData'
 import FilterListIcon from '@mui/icons-material/FilterList' ;
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -35,6 +36,43 @@ function classNames(...classes) {
 
 export default function Product() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleFilter = (value , sectionId) => {
+    const searchParams = new URLSearchParams(location.search)
+
+    let filterValue = searchParams.getAll(sectionId)
+
+    if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
+      filterValue = filterValue[0].split(",").filter((item) => item != value);
+
+      if(filterValue.length === 0){
+        searchParams.delete(sectionId)
+      }
+    }
+    else{
+      filterValue.push(value)
+    }
+
+    if(filterValue.length > 0 ){
+      searchParams.set(sectionId, filterValue.join(","));
+    }
+     const query = searchParams.toString();
+      navigate({search: `?${query}` })
+  }
+
+  
+  const handleRadioFilter = (e , sectionId) => {
+    const searchParams = new URLSearchParams(location.search)
+
+    searchParams.set(sectionId, e.target.value)
+
+     const query = searchParams.toString();
+      navigate({search: `?${query}` })
+  }
+
+
 
   return (
     <div className="bg-white">
@@ -92,6 +130,7 @@ export default function Product() {
                             <div className="flex h-5 shrink-0 items-center">
                               <div className="group grid size-4 grid-cols-1">
                                 <input
+                                onChange={() => handleFilter(option.value, section.id)}
                                   defaultValue={option.value}
                                   id={`filter-mobile-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
@@ -157,6 +196,7 @@ export default function Product() {
                             <div className="flex h-5 shrink-0 items-center">
                               <div className="group grid size-4 grid-cols-1">
                                 <input
+                                onChange={(e) => handleRadioFilter(e, section.id)}
                                   defaultValue={option.value}
                                   id={`filter-mobile-${section.id}-${optionIdx}`}
                                   name={section.id}
@@ -185,7 +225,7 @@ export default function Product() {
                                 </svg>
                               </div>
                             </div>
-                            <label htmlFor={`filter-${section.id}-${optionIdx}`} className="text-sm text-gray-600">
+                            <label htmlFor={`filter-mobile-${section.id}-${optionIdx}`} className="text-sm text-gray-600">
                               {option.label}
                             </label>
                           </div>
@@ -290,6 +330,7 @@ export default function Product() {
                                 <div className="flex h-5 shrink-0 items-center">
                                   <div className="group grid size-4 grid-cols-1">
                                     <input
+                                     onChange={() => handleFilter(option.value, section.id)}
                                       defaultValue={option.value}
                                       id={`filter-${section.id}-${optionIdx}`}
                                       name={`${section.id}[]`}
@@ -320,7 +361,7 @@ export default function Product() {
                                 </div>
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="min-w-0 flex-1 text-gray-500"
+                                  className="min-w-0 flex-1 text-gray-500 cursor-pointer"
                                 >
                                   {option.label}
                                 </label>
@@ -355,6 +396,7 @@ export default function Product() {
                                 <div className="flex h-5 shrink-0 items-center">
                                   <div className="group grid size-4 grid-cols-1">
                                     <input
+                                     onChange={(e) => handleRadioFilter(e, section.id)}
                                       defaultValue={option.value}
                                       id={`filter-${section.id}-${optionIdx}`}
                                       name={section.id}
