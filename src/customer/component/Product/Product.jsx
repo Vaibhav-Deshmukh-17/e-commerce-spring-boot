@@ -18,6 +18,7 @@ import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from
 import { mens_kurta } from '../../../Data/mens_kurta'
 import ProductCard from './ProductCard'
 import { filters, singleFilter } from './FilterData'
+import FilterListIcon from '@mui/icons-material/FilterList' ;
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -51,7 +52,6 @@ export default function Product() {
               className="relative ml-auto flex size-full max-w-xs transform flex-col overflow-y-auto bg-white pt-4 pb-6 shadow-xl transition duration-300 ease-in-out data-closed:translate-x-full"
             >
               <div className="flex items-center justify-between px-4">
-                <h2 className="text-lg font-medium text-gray-900 opacity-70">Filters</h2>
                 <button
                   type="button"
                   onClick={() => setMobileFiltersOpen(false)}
@@ -65,6 +65,11 @@ export default function Product() {
 
               {/* Mobile Filters */}
               <div className='flex flex-col'>
+                <div>
+                    <div className='flex items-center justify-between'>
+                      <h2 className="text-lg font-medium text-gray-900 opacity-70">Filters</h2>
+                        <FilterListIcon/>
+                    </div>
              <form className="mt-4 border-t border-gray-200">
                 {filters.map((section) => (
                   <Disclosure key={section.id} as="div" className="border-t border-gray-200 px-4 py-6">
@@ -192,6 +197,7 @@ export default function Product() {
                   </Disclosure>
                 ))}
               </form>
+                </div>
               </div>
 
             </DialogPanel>
@@ -257,7 +263,10 @@ export default function Product() {
                      {/* Desktop Filters */}
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
               <div>
-                <h1 className='text-lg font-semibold opacity-80 hidden lg:block'>Filter</h1>
+                <div className='items-center justify-between opacity-70 hidden lg:flex'>
+                <h1 className='text-lg font-semibold'>Filter</h1>
+                <FilterListIcon/>
+                </div>
                 <div className='hidden lg:block lg:col-span-1'>
                   <form className="mt-4 border-t border-gray-200">
                     {filters.map((section) => (
