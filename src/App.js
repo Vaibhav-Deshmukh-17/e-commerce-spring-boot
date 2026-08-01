@@ -2,6 +2,7 @@ import './App.css';
 import Footer from './customer/component/Footer/Footer';
 import Navigation from './customer/component/Navigation/Navigation';
 import Product from './customer/component/Product/Product';
+import ProductDetails from './customer/component/ProductDetails/ProductDetails';
 import HomePage from './customer/Pages/HomePage/HomePage';
 
 function App() {
@@ -11,8 +12,9 @@ function App() {
       <Navigation/>
 
       <div>
-        <HomePage/>
-        <Product/>
+        {/* <HomePage/> */}
+        {/* <Product/> */}
+        <ProductDetails/>
       </div>
       <Footer/>
     </div> 
