@@ -33,7 +33,7 @@ export const filters = [
       { value: 'L', label: 'L'},
       { value: 'XL', label: 'XL'},
       { value: 'XXL', label: 'XXL'},
-      { value: 'XXXL', label: 'XXXL'},
+      { value: '3XL', label: '3XL'},
     ],
   },
 ];
